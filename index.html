@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asmaa Elneanaey | Mobile Developer</title>
+<meta name="description" content="Asmaa Elneanaey, junior mobile developer in Cairo, Egypt. Flutter, Dart, Kotlin and Android projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#F2F5F9; --card:#FFFFFF; --ink:#0F1B2D; --muted:#4A5A70; --line:#D5DDE8; --accent:#2350E8;
+  --head:'Space Grotesk','Inter',system-ui,sans-serif;
+  --body:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3,h4,p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.mono-label{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.accent{color:var(--accent)}
+.muted{color:var(--muted)}
+
+/* nav */
+.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-top:20px}
+.brand{font-family:var(--head);font-weight:700;font-size:20px;padding:10px 0}
+.nav-links{display:flex;flex-wrap:wrap;gap:0 4px;font-size:15px;font-weight:500}
+.nav-links a{padding:12px 10px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:8px;font-weight:600;font-size:16px;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* hero */
+.hero{padding-top:64px;display:flex;flex-direction:column;gap:56px}
+.hero-main{display:flex;flex-wrap:wrap;align-items:center;gap:48px}
+.hero-text{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:24px}
+.hero h1{font-family:var(--head);font-weight:700;font-size:clamp(44px,7vw,80px);line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+.hero .sub{font-family:var(--head);font-weight:500;font-size:clamp(22px,3vw,30px);line-height:1.25;text-wrap:balance}
+.hero .lead{max-width:60ch;color:var(--muted)}
+.code-card{flex:1 1 380px;min-width:0;max-width:540px;background:#0F1B2D;border-radius:12px;overflow:hidden}
+.code-tab{padding:12px 20px;border-bottom:1px solid #263A57;font-family:var(--mono);font-size:13px;color:#9FB0C8}
+.code-body{overflow-x:auto;padding:24px 20px}
+.code-body pre{margin:0;font-family:var(--mono);font-size:14px;line-height:1.75;color:#D6E2F5}
+.k{color:#7FB2FF}.s{color:#FFB86B}.n{color:#7EE0B5}.c{color:#8FA3BF}
+.facts{display:flex;flex-wrap:wrap;gap:24px 48px;padding-top:28px;border-top:1px solid var(--line)}
+.fact{flex:1 1 200px;min-width:0;display:flex;flex-direction:column;gap:2px}
+.fact .mono-label{color:var(--muted)}
+.fact span:last-child{font-weight:500}
+
+/* sections */
+section{padding-top:96px}
+.stack{display:flex;flex-direction:column;gap:40px}
+h2{font-family:var(--head);font-weight:700;font-size:40px;line-height:1.1;letter-spacing:-.01em}
+.section-intro{color:var(--muted);max-width:60ch;margin-top:8px}
+
+/* featured */
+.featured{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:32px;display:flex;flex-wrap:wrap;gap:32px 56px}
+.featured-main{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.featured h3{font-family:var(--head);font-weight:700;font-size:34px;line-height:1.1}
+.featured .tagline{font-weight:500;font-size:19px;line-height:1.4}
+.tags{font-family:var(--mono);font-size:13px}
+.featured .tags{font-size:14px}
+.featured-list{flex:1 1 260px;min-width:0;align-self:center}
+.featured-list div{padding:16px 0;border-top:1px solid var(--line);font-weight:500}
+.featured-list div:last-child{border-bottom:1px solid var(--line)}
+
+/* project grid */
+.grid-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.grid-head h3{font-family:var(--head);font-weight:700;font-size:24px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.filters button{min-height:44px;padding:0 18px;border-radius:22px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:500 15px var(--body);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:24px}
+.card{display:flex;flex-direction:column;justify-content:space-between;gap:24px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px;min-width:0}
+.card[hidden]{display:none}
+.card-top{display:flex;flex-direction:column;gap:10px}
+.card h4{font-family:var(--head);font-weight:700;font-size:22px;line-height:1.2}
+.card p{color:var(--muted);font-size:16px}
+.card-bottom{display:flex;flex-direction:column;gap:12px}
+.card-bottom a{color:var(--accent);font-weight:600;font-size:15px;padding:4px 0}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:36px 40px}
+.skill{border-top:2px solid var(--ink);padding-top:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.skill h3{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.skill div{display:flex;flex-direction:column;gap:4px;font-size:16px}
+
+/* experience */
+.role{display:flex;flex-wrap:wrap;gap:24px 56px;padding-top:32px;border-top:2px solid var(--ink)}
+.role-meta{flex:0 1 260px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.role-meta .date{font-family:var(--mono);font-size:14px;color:var(--accent);font-weight:500}
+.role-meta .track{color:var(--muted);font-size:15px}
+.role-body{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.role-body h3{font-family:var(--head);font-weight:700;font-size:26px;line-height:1.2}
+.role-body .org{font-weight:500}
+.role-body ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;max-width:68ch;color:var(--muted)}
+
+/* education */
+.edu{display:flex;flex-wrap:wrap;gap:40px 56px}
+.edu-col{flex:1 1 340px;min-width:0}
+.degree{display:flex;flex-direction:column;gap:4px;padding-top:16px;border-top:2px solid var(--ink)}
+.degree .year{font-family:var(--mono);font-size:14px;color:var(--accent);font-weight:500}
+.degree h3{font-family:var(--head);font-weight:700;font-size:22px;line-height:1.25}
+.diplomas{display:flex;flex-direction:column;gap:2px;padding-top:16px;margin-top:24px;border-top:1px solid var(--line)}
+.diplomas .t{font-weight:500}
+.diplomas .o{color:var(--muted);margin-bottom:10px}
+.cert{display:flex;flex-direction:column;gap:2px;padding:16px 0;border-top:1px solid var(--line)}
+.cert:first-child{border-top:2px solid var(--ink)}
+.cert:last-child{border-bottom:1px solid var(--line)}
+.cert .t{font-weight:500}
+.cert .o{color:var(--muted);font-size:15px}
+.langs{display:flex;flex-wrap:wrap;gap:12px 48px;font-size:16px}
+.langs .mono-label{color:var(--muted);margin-right:10px}
+
+/* contact */
+.contact{margin-top:96px;background:#0F1B2D;color:#E8EEF7;padding:80px 0}
+.contact-inner{display:flex;flex-wrap:wrap;gap:40px 72px}
+.contact-intro{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.contact h2{color:#fff}
+.contact-intro p{max-width:44ch;color:#C3D0E3}
+.contact-list{flex:1 1 380px;min-width:0}
+.row{display:flex;flex-wrap:wrap;gap:4px 24px;padding:16px 0;border-top:1px solid #2E4363}
+.row:last-child{border-bottom:1px solid #2E4363}
+.row .mono-label{flex:0 0 110px;color:#9FB0C8}
+.row a,.row span.v{flex:1 1 200px;min-width:0;overflow-wrap:anywhere}
+.row a{color:#8DB4FF}
+footer{background:#0F1B2D;color:#9FB0C8;font-size:14px;padding:0 0 32px}
+footer .wrap{border-top:1px solid #2E4363;padding-top:20px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#top">Asmaa Elneanaey</a>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-main">
+      <div class="hero-text">
+        <span class="mono-label accent">Flutter · Android · Cairo, Egypt</span>
+        <h1>Asmaa Elneanaey</h1>
+        <p class="sub">Junior mobile developer building Flutter and native Android apps.</p>
+        <p class="lead">I build cross-platform and native Android apps with Flutter, Dart and Kotlin, backed by Firebase, Supabase and REST APIs. I focus on clean architecture, clear state management and interfaces that are easy to use. I am currently growing my engineering and leadership skills in the Digilians Initiative, a program of Egypt's Ministry of Communications and Information Technology.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#projects">View projects</a>
+          <a class="btn" href="https://github.com/AsmaElneanaey" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://linkedin.com/in/asmaa-mahmoud-61a7553b2" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="code-card" aria-hidden="true">
+        <div class="code-tab">asmaa.dart</div>
+        <div class="code-body"><pre><span class="k">class</span> Asmaa <span class="k">extends</span> Developer {
+  <span class="k">final</span> role = <span class="s">'Mobile Developer'</span>;
+  <span class="k">final</span> stack = [<span class="s">'Flutter'</span>, <span class="s">'Kotlin'</span>];
+  <span class="k">final</span> backend = [<span class="s">'Firebase'</span>, <span class="s">'Supabase'</span>];
+
+  <span class="c">@override</span>
+  Widget build(BuildContext context) {
+    <span class="k">return</span> Portfolio(
+      projects: <span class="n">9</span>,
+      state: <span class="s">'BloC'</span>,
+      base: <span class="s">'Cairo'</span>,
+    );
+  }
+}</pre></div>
+      </div>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="mono-label">Based in</span><span>Cairo, Egypt</span></div>
+      <div class="fact"><span class="mono-label">Currently</span><span>Mobile track, Digilians Initiative</span></div>
+      <div class="fact"><span class="mono-label">Education</span><span>BA Information Technology, Tanta University, 2024</span></div>
+    </div>
+  </div>
+
+  <section id="projects">
+    <div class="wrap stack">
+      <div>
+        <h2>Projects</h2>
+        <p class="section-intro">Nine apps across Flutter and native Android, from an AI interview coach to e-commerce and a metro route finder.</p>
+      </div>
+
+      <article class="featured">
+        <div class="featured-main">
+          <span class="mono-label accent">Featured · Flutter</span>
+          <h3>PrepYou.ai</h3>
+          <p class="tagline">An AI-powered interview prep platform for job seekers.</p>
+          <p class="muted">A cross-platform app that helps candidates practice for interviews with AI-powered features, analysis of their CV and personalized feedback, on top of a secure backend.</p>
+          <span class="tags">Flutter · Dart · Firebase · REST APIs · AI</span>
+          <div class="btn-row">
+            <a class="btn primary" href="https://prepyou.ai" target="_blank" rel="noopener">Visit prepyou.ai</a>
+            <a class="btn" href="https://github.com/AsmaElneanaey/prepouai" target="_blank" rel="noopener">GitHub repository</a>
+          </div>
+        </div>
+        <div class="featured-list">
+          <div>AI-powered interview practice</div>
+          <div>CV analysis</div>
+          <div>Personalized feedback</div>
+          <div>Secure backend integration</div>
+        </div>
+      </article>
+
+      <div class="grid-head">
+        <h3>More projects</h3>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" data-filter="all" aria-pressed="true">All (8)</button>
+          <button type="button" data-filter="flutter" aria-pressed="false">Flutter (5)</button>
+          <button type="button" data-filter="android" aria-pressed="false">Native Android (3)</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="card" data-kind="flutter">
+          <div class="card-top">
+            <span class="mono-label accent">Flutter</span>
+            <h4>Fruity App</h4>
+            <p>A grocery e-commerce app on a dual Firebase and Supabase backend, with an admin dashboard for inventory and orders, secure payments and real-time sync.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Flutter · Firebase · Supabase</span>
+            <a href="https://github.com/AsmaElneanaey/fruity_app" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+        <article class="card" data-kind="flutter">
+          <div class="card-top">
+            <span class="mono-label accent">Flutter</span>
+            <h4>Skakr App</h4>
+            <p>A boutique fashion app for custom clothing designs, with BloC state management for complex app states and personalized category navigation.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Flutter · BloC</span>
+          </div>
+        </article>
+        <article class="card" data-kind="flutter">
+          <div class="card-top">
+            <span class="mono-label accent">Flutter</span>
+            <h4>Milstock</h4>
+            <p>An app for managing storage and inventory across military facility warehouses.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Flutter · Dart</span>
+            <a href="https://github.com/AsmaElneanaey/milstock" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+        <article class="card" data-kind="flutter">
+          <div class="card-top">
+            <span class="mono-label accent">Flutter</span>
+            <h4>Ecommerce General App</h4>
+            <p>An e-commerce platform with secure sign-in, a product catalog, an optimized checkout flow and automated order tracking.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Flutter · Dart</span>
+          </div>
+        </article>
+        <article class="card" data-kind="flutter">
+          <div class="card-top">
+            <span class="mono-label accent">Flutter</span>
+            <h4>Notes App</h4>
+            <p>An app for creating, editing and organizing personal notes.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Flutter · Dart</span>
+            <a href="https://github.com/AsmaElneanaey/notes_app" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+        <article class="card" data-kind="android">
+          <div class="card-top">
+            <span class="mono-label accent">Native Android</span>
+            <h4>Stock App</h4>
+            <p>A stock-market app with real-time data over REST APIs, stock search, watchlists and market insights, built with MVVM and clean architecture.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Jetpack Compose · Kotlin · MVVM</span>
+            <a href="https://github.com/Reham-gamal777/Makhazany" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+        <article class="card" data-kind="android">
+          <div class="card-top">
+            <span class="mono-label accent">Native Android</span>
+            <h4>Metro App</h4>
+            <p>A metro navigation app with route finding and fare estimation, a responsive UI and modern state management.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Jetpack Compose · Kotlin</span>
+            <a href="https://github.com/AsmaElneanaey/Metro" target="_blank" rel="noopener">View on GitHub →</a>
+          </div>
+        </article>
+        <article class="card" data-kind="android">
+          <div class="card-top">
+            <span class="mono-label accent">Native Android</span>
+            <h4>Azkar App</h4>
+            <p>An app with daily Islamic supplications in categories, smooth navigation and offline access.</p>
+          </div>
+          <div class="card-bottom">
+            <span class="tags">Android Views (XML) · Kotlin</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap stack">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill"><h3>Mobile</h3><div><span>Flutter</span><span>Dart</span><span>Kotlin</span><span>Android development</span></div></div>
+        <div class="skill"><h3>UI</h3><div><span>Jetpack Compose</span><span>Android XML Views</span><span>Flutter UI</span></div></div>
+        <div class="skill"><h3>State and architecture</h3><div><span>BloC and Cubit</span><span>Clean Architecture</span><span>SOLID principles</span><span>OOP</span></div></div>
+        <div class="skill"><h3>Backend</h3><div><span>Firebase: Auth, Firestore, Storage</span><span>Supabase</span><span>RESTful APIs</span></div></div>
+        <div class="skill"><h3>Languages and data</h3><div><span>Dart, Kotlin, Java SE basics</span><span>Firebase Firestore</span><span>SharedPreferences, SQLite basics</span></div></div>
+        <div class="skill"><h3>Testing and tools</h3><div><span>Unit testing, basic UI testing</span><span>Git and GitHub</span><span>Android Studio, VS Code, Postman</span></div></div>
+      </div>
+      <p class="muted" style="max-width:70ch">Beyond code: leadership and team coordination, clear communication, problem solving, freelancing and project management, time management, and working in agile teams.</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap stack">
+      <h2>Experience</h2>
+      <div class="role">
+        <div class="role-meta">
+          <span class="date">January 2026 – Present</span>
+          <span class="track">Software Development, Mobile Specialization Track</span>
+        </div>
+        <div class="role-body">
+          <div>
+            <h3>Mobile Application Development</h3>
+            <span class="org">Digilians Initiative, Ministry of Communications and Information Technology</span>
+          </div>
+          <ul>
+            <li>Building cross-platform apps with Flutter and Dart, focused on clean, maintainable and scalable code.</li>
+            <li>Building native Android apps with Kotlin, Jetpack Compose and traditional Android Views.</li>
+            <li>Applying OOP, SOLID principles and Clean Architecture in real projects.</li>
+            <li>Implementing modern state management patterns and integrating RESTful APIs and backend services.</li>
+            <li>Writing unit tests and basic UI tests to improve reliability and quality.</li>
+            <li>Collaborating on team projects with version control workflows, while building leadership, communication and project-management skills.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap stack">
+      <h2>Education and certifications</h2>
+      <div class="edu">
+        <div class="edu-col">
+          <div class="degree">
+            <span class="year">2024</span>
+            <h3>Bachelor of Arts in Information Technology</h3>
+            <span class="muted">Tanta University, Egypt</span>
+          </div>
+          <div class="diplomas">
+            <span class="t">Mobile Application Diploma (Flutter/Dart)</span>
+            <span class="o">IT Sharks Academy</span>
+            <span class="t">Java SE and Oracle Middleware Fusion ADF</span>
+            <span class="o" style="margin-bottom:0">Next Academy</span>
+          </div>
+        </div>
+        <div class="edu-col">
+          <div class="cert"><span class="t">Flutter and Dart: Developing iOS, Android, and Mobile Apps</span><span class="o">IBM</span></div>
+          <div class="cert"><span class="t">Advanced Programming in Kotlin</span><span class="o">Meta, Coursera</span></div>
+          <div class="cert"><span class="t">Introduction to Android Mobile Application Development</span><span class="o">Meta, Coursera</span></div>
+          <div class="cert"><span class="t">Create the User Interface in Android Studio</span><span class="o">Meta, Coursera</span></div>
+          <div class="cert"><span class="t">Mobile App Notifications, Databases, and Publishing</span><span class="o">SkillUp</span></div>
+        </div>
+      </div>
+      <div class="langs">
+        <span><span class="mono-label">Arabic</span>Native</span>
+        <span><span class="mono-label">English</span>Professional working proficiency</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap contact-inner">
+      <div class="contact-intro">
+        <h2>Contact</h2>
+        <p>Open to conversations about junior mobile developer roles, freelance projects and collaboration. Email is the quickest way to reach me.</p>
+      </div>
+      <div class="contact-list">
+        <div class="row"><span class="mono-label">Email</span><a href="mailto:asmaamahmoud1404@gmail.com">asmaamahmoud1404@gmail.com</a></div>
+        <div class="row"><span class="mono-label">Phone</span><span class="v">+20 1132452807</span></div>
+        <div class="row"><span class="mono-label">LinkedIn</span><a href="https://linkedin.com/in/asmaa-mahmoud-61a7553b2" target="_blank" rel="noopener">linkedin.com/in/asmaa-mahmoud-61a7553b2</a></div>
+        <div class="row"><span class="mono-label">GitHub</span><a href="https://github.com/AsmaElneanaey" target="_blank" rel="noopener">github.com/AsmaElneanaey</a></div>
+        <div class="row"><span class="mono-label">Location</span><span class="v">Cairo, Egypt</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Asmaa Elneanaey</div>
+</footer>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.filters button');
+  var cards = document.querySelectorAll('.card');
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var f = btn.getAttribute('data-filter');
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      cards.forEach(function (c) {
+        c.hidden = !(f === 'all' || c.getAttribute('data-kind') === f);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
